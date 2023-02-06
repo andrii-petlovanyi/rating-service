@@ -1,1 +1,5 @@
 export * from './Htag/Htag'
+export * from './Ptag/Ptag'
+export * from './Badge/Badge'
+export * from './Button/Button'
+export * from './Rating/Rating'
