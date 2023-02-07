@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Badge, Button, Htag, Ptag, Rating } from "../components";
+import { withLayout } from "../layout/Layout";
+import axios from "axios";
+import { GetStaticProps } from "next";
+import { IMenuItem } from "../interfaces/menu.interface";
 
-export default function Home(): JSX.Element {
+function Home({ menu, firstCategory }: HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(4)
   return (
     <>
@@ -22,4 +26,24 @@ export default function Home(): JSX.Element {
       <Rating rating={rating} isEditable setRating={setRating} />
     </>
   );
+}
+
+export default withLayout(Home);
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const firstCategory = 0;
+  const { data: menu } = await axios.post<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+    firstCategory
+  });
+  return {
+    props: {
+      menu,
+      firstCategory
+    }
+  }
+}
+
+interface HomeProps extends Record<string, unknown> {
+  menu: IMenuItem[];
+  firstCategory: number;
 }

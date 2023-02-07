@@ -12,16 +12,11 @@ export const Button = ({
 }: ButtonProps): JSX.Element => {
     return (
         <button
-            className={cn(styles.button, className, {
-                [styles.primary]: appearance == "primary",
-                [styles.ghost]: appearance == "ghost",
-            })}
+            className={cn(styles.button, className, styles[appearance])}
             {...props}
         >
             {children}
-            {arrow !== 'none' && <span className={cn(styles.arrow, {
-                [styles.down]: arrow == 'down'
-            })}>
+            {arrow !== 'none' && <span className={cn(styles.arrow, styles[arrow])}>
                 <ArrowIcon /></span>}
         </button>
     );
