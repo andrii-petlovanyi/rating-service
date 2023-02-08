@@ -1,18 +1,15 @@
-.p {
+.sidebar {
+	/* display: grid; */
+	align-content: start;
+	gap: 20px;
+}
+
+.logo {
 	margin: 0;
-}
+	margin-bottom: 20px;
 
-.s {
-	font-size: 14px;
-	line-height: 24px;
-}
+	color: var(--primary);
 
-.m {
-	font-size: 16px;
-	line-height: 24px;
-}
-
-.l {
-	font-size: 18px;
-	line-height: 29px;
+	font-size: 22px;
+	font-weight: 700;
 }

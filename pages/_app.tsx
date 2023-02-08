@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import '../styles/globals.css';
 import Head from 'next/head';
